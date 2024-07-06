@@ -109,10 +109,11 @@ class NewVisitorTest(LiveServerTestCase):
 
 		# Francis acessa a página inicial. Não há sinal da lista de Edith
 		self.browser.get(self.live_server_url)
-		page_text = self.browser.find_elements(By.TAG_NAME, 'body').text
+		elements = self.browser.find_elements(By.TAG_NAME, 'body')
+		page_text = " ".join(element.text for element in elements)		
 		self.assertNotIn('Buy peacock feathers', page_text)
 		self.assertNotIn('make a fly', page_text)
-
+		
 		# Francis inicia uma nova lista inserindo um novo item.
 		inputbox = self.browser.find_element(By.ID, 'id_new_item')
 		inputbox.send_keys('Buy milk')
