@@ -126,7 +126,8 @@ class NewVisitorTest(LiveServerTestCase):
 		self.assertNotEqual( francis_list_url, edith_list_url)
 
 		# Novamente não há sinal algum da lista de Edith
-		page_text = self.browserfind_elements(By.TAG_NAME, 'body').text
+		elements = self.browser.find_elements(By.TAG_NAME, 'body')
+		page_text = " ".join(element.text for element in elements)
 		self.assertNotIn('Buy peacock feathers', page_text)
 		self.assertIn('Buy milk', page_text)
 
