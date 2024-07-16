@@ -1,3 +1,3 @@
 # Projeto Superlists
 
-Bloco de notas para o curso TDD 2024
+Foi adicionado ao projeto a página de Lista de nao encontrada para o caso de um ID inválido ser inserido na url
